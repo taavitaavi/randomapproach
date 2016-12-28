@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		845491761E0ACE8F00EC7BBF /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845491751E0ACE8F00EC7BBF /* CustomAnnotationView.swift */; };
 		8476C5631DF8A15B00346A3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476C5621DF8A15B00346A3D /* AppDelegate.swift */; };
 		8476C5651DF8A15B00346A3D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476C5641DF8A15B00346A3D /* ViewController.swift */; };
 		8476C5681DF8A15B00346A3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8476C5661DF8A15B00346A3D /* Main.storyboard */; };
@@ -15,6 +16,11 @@
 		8476C5701DF8A15B00346A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8476C56E1DF8A15B00346A3D /* LaunchScreen.storyboard */; };
 		8476C57B1DF8A15C00346A3D /* randomapproachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476C57A1DF8A15C00346A3D /* randomapproachTests.swift */; };
 		8476C5861DF8A15C00346A3D /* randomapproachUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476C5851DF8A15C00346A3D /* randomapproachUITests.swift */; };
+		8492E2C81E017E2B00392FB8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8492E2C71E017E2B00392FB8 /* MapKit.framework */; };
+		8492E2CA1E017F0E00392FB8 /* Household.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492E2C91E017F0E00392FB8 /* Household.swift */; };
+		8492E2CD1E0181B600392FB8 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492E2CB1E0181B600392FB8 /* MapViewController.swift */; };
+		8492E2CE1E0181B600392FB8 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8492E2CC1E0181B600392FB8 /* MapViewController.xib */; };
+		84C613891E03EEF600D5DE0F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C613881E03EEF600D5DE0F /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		845491751E0ACE8F00EC7BBF /* CustomAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomAnnotationView.swift; path = ../CustomAnnotationView.swift; sourceTree = "<group>"; };
 		8476C55F1DF8A15B00346A3D /* randomapproach.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = randomapproach.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8476C5621DF8A15B00346A3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8476C5641DF8A15B00346A3D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +56,11 @@
 		8476C5811DF8A15C00346A3D /* randomapproachUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = randomapproachUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8476C5851DF8A15C00346A3D /* randomapproachUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = randomapproachUITests.swift; sourceTree = "<group>"; };
 		8476C5871DF8A15C00346A3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8492E2C71E017E2B00392FB8 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		8492E2C91E017F0E00392FB8 /* Household.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Household.swift; sourceTree = "<group>"; };
+		8492E2CB1E0181B600392FB8 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		8492E2CC1E0181B600392FB8 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
+		84C613881E03EEF600D5DE0F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +68,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84C613891E03EEF600D5DE0F /* CoreLocation.framework in Frameworks */,
+				8492E2C81E017E2B00392FB8 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +97,7 @@
 				8476C5791DF8A15C00346A3D /* randomapproachTests */,
 				8476C5841DF8A15C00346A3D /* randomapproachUITests */,
 				8476C5601DF8A15B00346A3D /* Products */,
+				8492E2C61E017E2B00392FB8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,6 +114,7 @@
 		8476C5611DF8A15B00346A3D /* randomapproach */ = {
 			isa = PBXGroup;
 			children = (
+				845491751E0ACE8F00EC7BBF /* CustomAnnotationView.swift */,
 				8476C5621DF8A15B00346A3D /* AppDelegate.swift */,
 				8476C5641DF8A15B00346A3D /* ViewController.swift */,
 				8476C5661DF8A15B00346A3D /* Main.storyboard */,
@@ -106,6 +122,9 @@
 				8476C56E1DF8A15B00346A3D /* LaunchScreen.storyboard */,
 				8476C5711DF8A15B00346A3D /* Info.plist */,
 				8476C5691DF8A15B00346A3D /* randomapproach.xcdatamodeld */,
+				8492E2C91E017F0E00392FB8 /* Household.swift */,
+				8492E2CB1E0181B600392FB8 /* MapViewController.swift */,
+				8492E2CC1E0181B600392FB8 /* MapViewController.xib */,
 			);
 			path = randomapproach;
 			sourceTree = "<group>";
@@ -126,6 +145,15 @@
 				8476C5871DF8A15C00346A3D /* Info.plist */,
 			);
 			path = randomapproachUITests;
+			sourceTree = "<group>";
+		};
+		8492E2C61E017E2B00392FB8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				84C613881E03EEF600D5DE0F /* CoreLocation.framework */,
+				8492E2C71E017E2B00392FB8 /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,6 +226,11 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 2B8R4J52RQ;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					8476C5751DF8A15C00346A3D = {
 						CreatedOnToolsVersion = 8.1;
@@ -241,6 +274,7 @@
 				8476C5701DF8A15B00346A3D /* LaunchScreen.storyboard in Resources */,
 				8476C56D1DF8A15B00346A3D /* Assets.xcassets in Resources */,
 				8476C5681DF8A15B00346A3D /* Main.storyboard in Resources */,
+				8492E2CE1E0181B600392FB8 /* MapViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,7 +300,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8476C56B1DF8A15B00346A3D /* randomapproach.xcdatamodeld in Sources */,
+				8492E2CA1E017F0E00392FB8 /* Household.swift in Sources */,
 				8476C5651DF8A15B00346A3D /* ViewController.swift in Sources */,
+				8492E2CD1E0181B600392FB8 /* MapViewController.swift in Sources */,
+				845491761E0ACE8F00EC7BBF /* CustomAnnotationView.swift in Sources */,
 				8476C5631DF8A15B00346A3D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -518,6 +555,7 @@
 				8476C58C1DF8A15C00346A3D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8476C58D1DF8A15C00346A3D /* Build configuration list for PBXNativeTarget "randomapproachTests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +564,7 @@
 				8476C58F1DF8A15C00346A3D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8476C5901DF8A15C00346A3D /* Build configuration list for PBXNativeTarget "randomapproachUITests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +573,7 @@
 				8476C5921DF8A15C00346A3D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
