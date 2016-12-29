@@ -7,12 +7,11 @@
 //
 
 import Foundation
+import MapKit
 
-class Household{
+class Household: MKPointAnnotation {
     var address=""
     var name=""
     var properties=[String]()
-    init(address: String){
-        self.address=address
-    }
+    
 }

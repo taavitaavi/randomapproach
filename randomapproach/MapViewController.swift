@@ -47,35 +47,69 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
         print("tap")
         let location=sender.location(in: self.map)
         let locCoord = self.map.convert(location, toCoordinateFrom: self.map)
-        let annotation = MKPointAnnotation()
+        
+        performSegue(withIdentifier: "fromMapToAddHousehold", sender: sender)
+        
+        /*let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "addHousehold") as! AddHouseholdViewController
+        self.present(nextViewController, animated:true, completion:nil)
+        */
+        
+        /*let annotation = Household()
         pinCount += 1
         annotation.coordinate=locCoord
         annotation.title = "annotation title"
         annotation.subtitle = String(pinCount)
         
+        */
         
         
         //self.map.removeAnnotations(map.annotations)
-        self.map.addAnnotation(annotation)
+        //
         
            }
-
-   func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "fromMapToAddHousehold"){
+            let destinationVC = segue.destination as! AddHouseholdViewController
+            let tapRecognizer = sender as! UITapGestureRecognizer
+            let location = tapRecognizer.location(in:self.map)
+            destinationVC.location = location
+            destinationVC.locCoord = self.map.convert(location, toCoordinateFrom: self.map)
+        }
+    }
+    
+    
+    
+    @IBAction func unwindToMapVC(segue: UIStoryboardSegue) {
+        
+    }
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
         if annotation is MKUserLocation {
             //return nil so map view draws "blue dot" for standard user location
             return nil
         }
-        
-    var anno = mapView.dequeueReusableAnnotationView(withIdentifier: "Anno")
-    if anno == nil
-    {
-        anno = CustomAnnotationView.init(annotation: annotation, reuseIdentifier: "Anno")
-        anno?.setSelected(true, animated: true)
-    }
+    
+        var anno = mapView.dequeueReusableAnnotationView(withIdentifier: "Anno")
+        if anno == nil
+        {
+            anno = CustomAnnotationView.init(annotation: annotation, reuseIdentifier: "Anno")
+            //anno = MKPinAnnotationView.init(annotation: annotation, reuseIdentifier: "Anno")
+            anno?.setSelected(true, animated: true)
+            anno?.canShowCallout=false
+            anno?.isHighlighted=true
+            anno?.isDraggable=true
+            
+            
+            
+        }
     return anno;
     
     }
+    
+ 
+    
 
     @IBAction func toggleCompassMode(){
         if self.compassModeActive{
@@ -93,11 +127,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
     }
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         var locValue:CLLocationCoordinate2D = manager.location!.coordinate
-        print("locations = \(locValue.latitude) \(locValue.longitude)")
+        //print("locations = \(locValue.latitude) \(locValue.longitude)")
 
         
     }
     
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, didChange newState: MKAnnotationViewDragState, fromOldState oldState: MKAnnotationViewDragState) {
+        print("dragging")
+        
+    }
     //MARK: MKMapViewDelegate
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         let region = MKCoordinateRegion(center: self.map.userLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
@@ -107,6 +145,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
     
 
     /*

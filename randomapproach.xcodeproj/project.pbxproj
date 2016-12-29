@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		840FAEF51E14ED40008FFAB0 /* AddHouseholdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840FAEF41E14ED40008FFAB0 /* AddHouseholdViewController.swift */; };
 		845491761E0ACE8F00EC7BBF /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845491751E0ACE8F00EC7BBF /* CustomAnnotationView.swift */; };
 		8476C5631DF8A15B00346A3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476C5621DF8A15B00346A3D /* AppDelegate.swift */; };
 		8476C5651DF8A15B00346A3D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476C5641DF8A15B00346A3D /* ViewController.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		840FAEF41E14ED40008FFAB0 /* AddHouseholdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddHouseholdViewController.swift; path = ../AddHouseholdViewController.swift; sourceTree = "<group>"; };
 		845491751E0ACE8F00EC7BBF /* CustomAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomAnnotationView.swift; path = ../CustomAnnotationView.swift; sourceTree = "<group>"; };
 		8476C55F1DF8A15B00346A3D /* randomapproach.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = randomapproach.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8476C5621DF8A15B00346A3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				8476C5711DF8A15B00346A3D /* Info.plist */,
 				8476C5691DF8A15B00346A3D /* randomapproach.xcdatamodeld */,
 				8492E2C91E017F0E00392FB8 /* Household.swift */,
+				840FAEF41E14ED40008FFAB0 /* AddHouseholdViewController.swift */,
 				8492E2CB1E0181B600392FB8 /* MapViewController.swift */,
 				8492E2CC1E0181B600392FB8 /* MapViewController.xib */,
 			);
@@ -304,6 +307,7 @@
 				8476C5651DF8A15B00346A3D /* ViewController.swift in Sources */,
 				8492E2CD1E0181B600392FB8 /* MapViewController.swift in Sources */,
 				845491761E0ACE8F00EC7BBF /* CustomAnnotationView.swift in Sources */,
+				840FAEF51E14ED40008FFAB0 /* AddHouseholdViewController.swift in Sources */,
 				8476C5631DF8A15B00346A3D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

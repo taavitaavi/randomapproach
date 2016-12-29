@@ -11,15 +11,20 @@ import MapKit
 
 class CustomAnnotationView: MKPinAnnotationView {
 
-   
+
     let selectedLabel:UILabel = UILabel.init(frame:CGRect(x:0, y:0, width:140, height:38))
+    
     
     override func setSelected(_ selected: Bool, animated: Bool) 
     {
-        super.setSelected(false, animated: animated)
+        super.setSelected(true, animated: animated)
         // annotation is always selected
         //if(selected)
         //{
+        
+            // I might be able to display editable text view?
+        
+        
             // Do customization, for example:
             selectedLabel.text = (annotation?.subtitle)!
             selectedLabel.textAlignment = .center
