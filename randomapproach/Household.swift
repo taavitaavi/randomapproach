@@ -11,7 +11,10 @@ import MapKit
 
 class Household: MKPointAnnotation {
     var address=""
-    var name=""
+    var name:String?
     var properties=[String]()
+    
+    
+    
     
 }

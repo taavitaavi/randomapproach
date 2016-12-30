@@ -30,9 +30,9 @@
                                 </connections>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VHd-e2-z60">
-                                <rect key="frame" x="267" y="585" width="108" height="30"/>
+                                <rect key="frame" x="317" y="585" width="58" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="current location"/>
+                                <state key="normal" title="unfollow"/>
                                 <connections>
                                     <action selector="centerMapOnUserButtonClicked" destination="BYZ-38-t0r" eventType="touchUpInside" id="fix-Y0-AHK"/>
                                 </connections>
@@ -61,8 +61,10 @@
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="followButton" destination="VHd-e2-z60" id="YwO-wB-mXl"/>
                         <outlet property="map" destination="4Mc-fH-M1K" id="pdg-q0-uEB"/>
                         <segue destination="8tG-Vo-T8S" kind="presentation" identifier="fromMapToAddHousehold" id="bFe-29-iJN"/>
+                        <segue destination="8tG-Vo-T8S" kind="presentation" identifier="editHousehold" id="vSE-O7-tEi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -154,6 +156,7 @@
                     <connections>
                         <outlet property="nameField" destination="jWE-qr-Q9v" id="kdF-Dt-7WL"/>
                         <segue destination="yjS-jr-pNG" kind="unwind" identifier="unwindToMapVC" unwindAction="unwindToMapVCWithSegue:" id="4gO-Cp-gTl"/>
+                        <segue destination="yjS-jr-pNG" kind="unwind" identifier="cancelUnwindToMapVC" unwindAction="cancelUnwindToMapVCWithSegue:" id="nvP-kC-1XQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gpc-Cc-cPs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -162,4 +165,7 @@
             <point key="canvasLocation" x="-31.199999999999999" y="22.938530734632685"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="vSE-O7-tEi"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -13,11 +13,13 @@ import CoreLocation
 class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureRecognizerDelegate, MKMapViewDelegate{
     
      @IBOutlet weak var map: MKMapView!
+    @IBOutlet weak var followButton:UIButton!
     
     var pinAnnotationView:MKPinAnnotationView!
     var pinCount:Int=0
     let locationManager = CLLocationManager()
     var compassModeActive = false
+    var following = true
     
     
     override func viewDidLoad() {
@@ -50,21 +52,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
         
         performSegue(withIdentifier: "fromMapToAddHousehold", sender: sender)
         
-        /*let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "addHousehold") as! AddHouseholdViewController
-        self.present(nextViewController, animated:true, completion:nil)
-        */
-        
-        /*let annotation = Household()
-        pinCount += 1
-        annotation.coordinate=locCoord
-        annotation.title = "annotation title"
-        annotation.subtitle = String(pinCount)
-        
-        */
-        
-        
         //self.map.removeAnnotations(map.annotations)
         //
         
@@ -74,16 +61,33 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
             let destinationVC = segue.destination as! AddHouseholdViewController
             let tapRecognizer = sender as! UITapGestureRecognizer
             let location = tapRecognizer.location(in:self.map)
-            destinationVC.location = location
+            //destinationVC.location = location
             destinationVC.locCoord = self.map.convert(location, toCoordinateFrom: self.map)
+        }
+        if(segue.identifier == "editHousehold"){
+            print("preparing for edit household Segue")
+            let destinationVC = segue.destination as! AddHouseholdViewController
+            var issuer =  sender as? PinTapGestureRecognizer
+            let annotation = issuer?.annotation as! Household
+            destinationVC.annotation = annotation
+            destinationVC.locCoord = annotation.coordinate
+            print(annotation.name ?? "annotation name")
+            //destinationVC.nameField.text = annotation.name
+            //destinationVC.location
         }
     }
     
     
+    @IBAction func cancelUnwindToMapVC(segue: UIStoryboardSegue ){
     
+    }
     @IBAction func unwindToMapVC(segue: UIStoryboardSegue) {
         
     }
+    
+
+
+    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
         if annotation is MKUserLocation {
@@ -97,9 +101,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
             anno = CustomAnnotationView.init(annotation: annotation, reuseIdentifier: "Anno")
             //anno = MKPinAnnotationView.init(annotation: annotation, reuseIdentifier: "Anno")
             anno?.setSelected(true, animated: true)
-            anno?.canShowCallout=false
+            //anno?.canShowCallout=false
             anno?.isHighlighted=true
             anno?.isDraggable=true
+            anno?.image = UIImage(named: "bus")
+            anno?.isUserInteractionEnabled=true
+            let tapRecognizer = PinTapGestureRecognizer(target: self, action: #selector(handlePinTap(recognizer:)))
+            tapRecognizer.annotation=annotation as? MKPointAnnotation
+            anno?.addGestureRecognizer(tapRecognizer)
+            
             
             
             
@@ -107,26 +117,56 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
     return anno;
     
     }
+
     
- 
+    func handlePinTap(recognizer:PinTapGestureRecognizer){
+        print("handlePinTap mapview")
+       
+        performSegue(withIdentifier: "editHousehold", sender: recognizer)
+    }
+    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+        print("annotationview selected")
+    }
+
     
 
     @IBAction func toggleCompassMode(){
         if self.compassModeActive{
-           map.setUserTrackingMode(MKUserTrackingMode.followWithHeading, animated: false)
+           map.setUserTrackingMode(MKUserTrackingMode.none, animated: true)
             self.compassModeActive = false
+            self.following=false
+            self.followButton.setTitle("unfollow",for: .normal)
+            locationManager.stopUpdatingLocation()
         }
         else{
             map.setUserTrackingMode(MKUserTrackingMode.followWithHeading, animated: true)
+            self.locationManager.startUpdatingLocation()
             self.compassModeActive = true
-        }
+            self.following=true
+            self.followButton.setTitle("unfollow",for: .normal)
+            let region = MKCoordinateRegion(center: self.map.userLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
+            self.map.setRegion(region, animated: true)}
         
     }
     @IBAction func centerMapOnUserButtonClicked() {
-        self.map.setUserTrackingMode( MKUserTrackingMode.follow, animated: true)
+        if self.following{
+            self.map.setUserTrackingMode( MKUserTrackingMode.none, animated: true)
+            self.following=false
+            self.followButton.setTitle("follow",for: .normal)
+            self.locationManager.stopUpdatingLocation()
+        }
+        else{
+            self.map.setUserTrackingMode(MKUserTrackingMode.follow, animated: true)
+            self.following=true
+            self.followButton.setTitle("unfollow",for: .normal)
+            self.locationManager.startUpdatingLocation()
+            let region = MKCoordinateRegion(center: self.map.userLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
+            self.map.setRegion(region, animated: true)
+        }
+        
     }
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        var locValue:CLLocationCoordinate2D = manager.location!.coordinate
+        //var locValue:CLLocationCoordinate2D = manager.location!.coordinate
         //print("locations = \(locValue.latitude) \(locValue.longitude)")
 
         
@@ -138,8 +178,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
     }
     //MARK: MKMapViewDelegate
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-        let region = MKCoordinateRegion(center: self.map.userLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
-        mapView.setRegion(region, animated: true)
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

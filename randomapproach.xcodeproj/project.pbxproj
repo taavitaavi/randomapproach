@@ -22,6 +22,7 @@
 		8492E2CD1E0181B600392FB8 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492E2CB1E0181B600392FB8 /* MapViewController.swift */; };
 		8492E2CE1E0181B600392FB8 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8492E2CC1E0181B600392FB8 /* MapViewController.xib */; };
 		84C613891E03EEF600D5DE0F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C613881E03EEF600D5DE0F /* CoreLocation.framework */; };
+		84CCA3F11E168B780076D6AA /* PinTapGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CCA3F01E168B780076D6AA /* PinTapGestureRecognizer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		8492E2CB1E0181B600392FB8 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		8492E2CC1E0181B600392FB8 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 		84C613881E03EEF600D5DE0F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		84CCA3F01E168B780076D6AA /* PinTapGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinTapGestureRecognizer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				845491751E0ACE8F00EC7BBF /* CustomAnnotationView.swift */,
 				8476C5621DF8A15B00346A3D /* AppDelegate.swift */,
 				8476C5641DF8A15B00346A3D /* ViewController.swift */,
+				84CCA3F01E168B780076D6AA /* PinTapGestureRecognizer.swift */,
 				8476C5661DF8A15B00346A3D /* Main.storyboard */,
 				8476C56C1DF8A15B00346A3D /* Assets.xcassets */,
 				8476C56E1DF8A15B00346A3D /* LaunchScreen.storyboard */,
@@ -305,6 +308,7 @@
 				8476C56B1DF8A15B00346A3D /* randomapproach.xcdatamodeld in Sources */,
 				8492E2CA1E017F0E00392FB8 /* Household.swift in Sources */,
 				8476C5651DF8A15B00346A3D /* ViewController.swift in Sources */,
+				84CCA3F11E168B780076D6AA /* PinTapGestureRecognizer.swift in Sources */,
 				8492E2CD1E0181B600392FB8 /* MapViewController.swift in Sources */,
 				845491761E0ACE8F00EC7BBF /* CustomAnnotationView.swift in Sources */,
 				840FAEF51E14ED40008FFAB0 /* AddHouseholdViewController.swift in Sources */,

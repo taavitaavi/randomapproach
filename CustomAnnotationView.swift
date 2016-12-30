@@ -9,11 +9,12 @@
 import UIKit
 import MapKit
 
-class CustomAnnotationView: MKPinAnnotationView {
+class CustomAnnotationView: MKPinAnnotationView, UIGestureRecognizerDelegate{
 
 
-    let selectedLabel:UILabel = UILabel.init(frame:CGRect(x:0, y:0, width:140, height:38))
+    var selectedLabel:UILabel = UILabel.init(frame:CGRect(x:0, y:0, width:140, height:38))
     
+   
     
     override func setSelected(_ selected: Bool, animated: Bool) 
     {
@@ -26,6 +27,7 @@ class CustomAnnotationView: MKPinAnnotationView {
         
         
             // Do customization, for example:
+            //selectedLabel.isUserInteractionEnabled=true
             selectedLabel.text = (annotation?.subtitle)!
             selectedLabel.textAlignment = .center
             selectedLabel.font = UIFont.init(name: "HelveticaBold", size: 15)
@@ -37,13 +39,36 @@ class CustomAnnotationView: MKPinAnnotationView {
             
             selectedLabel.center.x = 0.5 * self.frame.size.width;
             selectedLabel.center.y = -0.5 * selectedLabel.frame.height;
+            selectedLabel.isUserInteractionEnabled=true
+        /*let tapRecognizer = UITapGestureRecognizer(target: selectedLabel, action: #selector(handlePinTap(_recognizer:)))
+        
+        selectedLabel.addGestureRecognizer(tapRecognizer)
+        
+*/
+        
+            /*lpgr.minimumPressDuration = 0.5
+            lpgr.delaysTouchesBegan = true
+            lpgr.delegate = self*/
+        
+        
             self.addSubview(selectedLabel)
+        
         //}
         //else
         //{
           //  selectedLabel.removeFromSuperview()
         //}
     }
+
+    func handlePinTap(_recognizer:UITapGestureRecognizer){
+        print("handlePinTap annotation view")
+        //performSegue(withIdentifier: "editHousehold", sender: _recognizer)
+    }
+    func labelDoubleTap(_recognizer: UITapGestureRecognizer){
+        print("labelDoubleTap")
+        
+    }
+
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.

@@ -12,23 +12,24 @@ import MapKit
 class AddHouseholdViewController: UIViewController {
     @IBOutlet var nameField:UITextField!
     @IBOutlet var recommenderField:UITextField!
-    var location:CGPoint?
+    //var location:CGPoint?
     var locCoord:CLLocationCoordinate2D?
     var annotation = Household()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         print("addhouseholdviewcontroller")
-        print(location!)
+        if (annotation.name != nil){
+            nameField.text = annotation.name
+        }
+        nameField.text = annotation.name ?? ""
+        //print(location!)
 
         // Do any additional setup after loading the view.
     }
     
     @IBAction func Cancel(){
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "mapViewController") as! MapViewController
-        self.present(nextViewController, animated:true, completion:nil)
+     self.performSegue(withIdentifier: "cancelUnwindToMapVC", sender: self)
     }
     @IBAction func launchCalendar(){
         
@@ -41,6 +42,7 @@ class AddHouseholdViewController: UIViewController {
         annotation.coordinate = self.locCoord!
         annotation.title = "annotation title"
         annotation.subtitle = nameField.text
+        annotation.name = nameField.text!
         performSegue(withIdentifier: "unwindToMapVC", sender: self)
         //self.map.addAnnotation(annotation)
     }
